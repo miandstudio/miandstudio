@@ -40,11 +40,11 @@ a i{
 
 /*text - border color*/
 .text-nblue{
-  color: #1e3372;
+  color: #0d1068;
 }
 
 .faded-nblue{
-  color: rgba(19, 44, 116, 0.77);
+  color: rgba(13, 16, 105, 0.85);
 }
 
 .text-yellow{
@@ -72,7 +72,7 @@ a i{
 }
 
 .border-nblue{
-border-color: #1e3372;
+border-color: #0d1068;
 }
 
 .text-box{
@@ -93,7 +93,7 @@ h6 {
   background-color: #39c7bd !important; }
 
 .bg-nblue {
-    background-color: #1e3372 !important; }
+    background-color: #0d1068 !important; }
 
 .bg-white {
   background-color: #ffffff !important; }
@@ -292,12 +292,13 @@ height: 100px;
 
 
 
-.portfolio-box {
+/*.thumb-box {
   position: relative;
-  display: block;
+  display:flex;
+  overflow: hidden;
   max-width: 650px;
   max-height: 253px;
-  margin: 0 auto; }
+  margin: 0 auto; }*/
 
   .portfolio-box .portfolio-box-caption {
     position: absolute;
@@ -358,12 +359,22 @@ height: 100px;
   .btn-primary:active, .btn-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(244, 221, 73, 0.5) !important; }
 
-#contact h2{
-  margin-bottom: 1rem;
+#contact {
 }
 
 .bg-contact{
   background-image: linear-gradient(rgba(254, 220, 49, 0.59), rgba(254, 220, 49, 0.56)), url(../img/contact.jpg);
   background-size: cover;
   background-position: top;
+}
+
+button {
+	background-color: #3C4A53;
+	border: none;
+	font-size: .9rem;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 8px 15px;
+	margin: 10px;
 }

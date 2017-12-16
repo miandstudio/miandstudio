@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> galerry</title>
+  <script type='text/javascript' src='jquery.js'></script>
+  <style type='text/css'>
+    #fader {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    }
+ .button {
+    background-color:gold;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    display:block;
+   }
+  #next {
+    right: 850px;
+    top:500px;
+   }
+  #prev {
+    left: 840px;
+    top:500px;
+   }
+  #pause {
+    left: 900px;
+    top:500px;
+    color:orange;
+   }
+ #inicio {
+    left: 960px;
+    top:500px;
+    color:green;
+   }
+  </style>
+
+</head>
+<body>
+  <div id="fader">
+    <img src="http://dummyimage.com/600x400/000/fff.png&text=Image1"/>
+    <img src="http://dummyimage.com/200x400/f00/000.jpg&text=Image2"/>
+    <img src="http://dummyimage.com/100x100/0f0/000.png&text=Image3"/>
+    <img src="http://dummyimage.com/400x400/0ff/000.gif&text=Image4"/>
+    <img src="http://dummyimage.com/350x250/ff0/000.png&text=Image5"/>
+ </div>
+ <div class="button" id="next">►►</div>
+ <div class="button" id="pause">▌▌</div>
+<div class="button" id="inicio">►</div>
+ <div class="button" id="prev">◄◄</div>
+ <script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$(function() {
+    $('#fader img:not(:first)').hide();
+    $('#fader img').css('position', 'absolute');
+    $('#fader img').css('top', '0px');
+    $('#fader img').css('left', '50%');
+    $('#fader img').each(function() {
+        var img = $(this);
+        $('<img>').attr('src', $(this).attr('src')).load(function() {
+            img.css('margin-left', -this.width / 2 + 'px');
+        });
+    });
+
+    var pause = false;
+
+    function fadeNext() {
+        $('#fader img').first().fadeOut().appendTo($('#fader'));
+        $('#fader img').first().fadeIn();
+    }
+
+    function fadePrev() {
+        $('#fader img').first().fadeOut();
+        $('#fader img').last().prependTo($('#fader')).fadeIn();
+    }
+
+    $('#fader, #next').click(function() {
+        fadeNext();
+    });
+
+    $('#prev').click(function() {
+        fadePrev();
+    });
+
+    $('#pause').click(function() {
+        pause = true;
+    });
+
+   $('#inicio').click(function() {
+        pause = false;
+    });
+
+    function doRotate() {
+        if(!pause) {
+            fadeNext();
+        }
+    }
+    var rotate = setInterval(doRotate, 10000);
+});
+});//]]>
+</script>
+</body>
+</html>
