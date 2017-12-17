@@ -142,7 +142,7 @@
             <p class="text-muted mb-4"> A Collection of our students' artwork</p>
           </div>
         </div>
-        <div class="carousel-wrapper row no-gutters popup-gallery py-4">
+        <div class="carousel-wrapper row no-gutters popup-gallery py-4 slide-1"  onscroll ="displayImg()">
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
               <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
@@ -175,7 +175,7 @@
           </div>
         </div>
 
-        <div class="carousel-wrapper row no-gutters popup-gallery py-4">
+        <div class="carousel-wrapper row no-gutters popup-gallery py-4 slide-2" id ="hideme">
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
               <img class="img-fluid" src="img/portfolio/thumbnails/7.jpg" alt="">
@@ -207,8 +207,14 @@
             </a>
           </div>
         </div>
-        <button id="previous">Previous</button>
-	<button id="next">Next</button>
+        <!-- <button id="previous">Previous</button>
+	<button id="next">Next</button> -->
+  <div class="container dot-container">
+    <div class = "dot-wrapper">
+      <span class="dot dot1"></span>
+      <span class="dot dot2"></span>
+      </div>
+  </div>
 
       </div>
     </section>
