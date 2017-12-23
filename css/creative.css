@@ -377,10 +377,23 @@ height: 100px;
 }
 
 .bg-contact{
-  background-image: linear-gradient(rgba(254, 220, 49, 0.59), rgba(254, 220, 49, 0.56)), url(../img/contact.jpg);
+  background-color:#fedc32 ;
   background-size: cover;
   background-position: top;
 }
+
+/* Map */
+.map {
+  height: 50%;
+  padding: 0;
+ }
+
+@media (max-width: 992px) {
+  .map {
+    height: 75%; } }
+
+.map iframe {
+  pointer-events: none; }
 
 button {
 	background-color: #3C4A53;
