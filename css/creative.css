@@ -280,7 +280,7 @@ height: 100px;
 }
 
 .icon-box-3{
-  background-image: url(../img/programs/computer.svg);
+background-image: url(../img/programs/computer.svg);
 margin: 0 auto;
 margin-bottom: .75rem;
 width: 100px;
@@ -380,6 +380,56 @@ height: 100px;
   background-color:#fedc32 ;
   background-size: cover;
   background-position: top;
+}
+
+.contact-box{
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+
+}
+.icon-phone{
+background-image: url(../img/contact/phone.svg);
+margin: 0 auto;
+margin-bottom: .75rem;
+width: 52px;
+height: 70px;
+background-repeat: no-repeat;
+display: block;
+
+}
+.icon-mail{
+background-image: url(../img/contact/mail.svg);
+margin: 0 auto;
+margin-bottom: .75rem;
+width: 70px;
+height: 62px;
+background-repeat: no-repeat;
+display: block;
+margin-top: .5rem;
+
+}
+
+
+#contact h4 {
+  color: #0d1068;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+
+#contact p {
+  margin-top: 2rem;
+  color: #39c7bd
+}
+
+#contact a {
+  margin-top: 2rem;
+  color: #39c7bd
+}
+
+#contact a:hover {
+text-decoration: none;
+  color: #0d1068;
 }
 
 /* Map */
