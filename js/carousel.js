@@ -1,7 +1,40 @@
+
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+$(".dot1").addClass("active");
+    document.getElementById("hideme").style.display="none";
+});
+
+function displayImg() {
+  document.getElementById("hideme").style.display="block";
+}
+
+$(".dot1").on('click',function(){
+
+$(".slide-1").show();
+$(".slide-2").hide();
+$(".dot1").addClass("active");
+$(".dot2").removeClass("active");
+
+});
+
+$(".dot2").on('click',function(){
+
+$(".slide-2").show();
+$(".slide-1").hide();
+$(".dot2").addClass("active");
+$(".dot1").removeClass("active");
+
+});
+
+
+
 // Create a variable currentImageNumber and set it to 0
+/*
 let currentSlideNumber=0;
 
-$("#next").on('click',function(){
+$(".dot1").on('click',function(){
   if(currentSlideNumber<1){
     currentSlideNumber+=1;
     console.log(currentSlideNumber);
@@ -17,19 +50,9 @@ $("#next").on('click',function(){
   $('.carousel-wrapper').eq(currentSlideNumber).fadeIn();
 
 });
-// When the user clicks the next button (#next)
-// If currentImageNumber < 3
-// Add one to the currentImageNumber
-// log currentImageNumber to the console
-
-// else
-// Set currentImageNumber to 0
-// log currentImageNumber to the console
 
 
-
-
-$("#previous").on('click', function(){
+$(".dot2").on('click', function(){
   if(currentSlideNumber>0){
     currentSlideNumber-=1;
     console.log(currentSlideNumber);
@@ -43,18 +66,37 @@ $("#previous").on('click', function(){
   $('.carousel-wrapper').hide();
   $('.carousel-wrapper').eq(currentSlideNumber).fadeIn();
 });
+*/
 
-//When the user clicks the previous button(#previous)
-//If currentImageNumber>0
-//deduct one from the currentImageNumber
-//log currentImageNumberto the console
-//else
-//Set currentImageNumber to 3
-//log currentImageNumber to the console
+let currentSlideNumber=0;
 
+setInterval(function(){
+  if(currentSlideNumber<1){
+    currentSlideNumber+=1;
+    console.log(currentSlideNumber);
+
+  } else {
+    currentSlideNumber=0;
+    //hide all images
+    //fade in the current image
+    console.log(currentSlideNumber);
+  }
+
+  $('.carousel-wrapper').hide();
+  $('.carousel-wrapper').eq(currentSlideNumber).fadeIn(2000);
+
+  console.log("currentSlideNumber");
+  $(".dot").removeClass("active");
+  $(".dot").eq(currentSlideNumber).addClass("active");
+
+
+
+}, 5000);
 
 
 // setInterval
+
+/*
 setInterval(function(){
   if(currentSlideNumber<1){
     currentSlideNumber+=1;
@@ -72,3 +114,5 @@ setInterval(function(){
 
   console.log("currentSlideNumber");
 }, 5000);
+
+*/
