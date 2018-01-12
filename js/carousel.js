@@ -1,9 +1,8 @@
 
 
 $( document ).ready(function() {
-    console.log( "ready!" );
-$(".dot1").addClass("active");
-    document.getElementById("hideme").style.display="none";
+  $(".dot1").addClass("active");
+  document.getElementById("hideme").style.display="none";
 });
 
 function displayImg() {
@@ -11,21 +10,17 @@ function displayImg() {
 }
 
 $(".dot1").on('click',function(){
-
-$(".slide-1").show();
-$(".slide-2").hide();
-$(".dot1").addClass("active");
-$(".dot2").removeClass("active");
-
+  $(".slide-1").show();
+  $(".slide-2").hide();
+  $(".dot1").addClass("active");
+  $(".dot2").removeClass("active");
 });
 
 $(".dot2").on('click',function(){
-
-$(".slide-2").show();
-$(".slide-1").hide();
-$(".dot2").addClass("active");
-$(".dot1").removeClass("active");
-
+  $(".slide-2").show();
+  $(".slide-1").hide();
+  $(".dot2").addClass("active");
+  $(".dot1").removeClass("active");
 });
 
 
