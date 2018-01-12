@@ -433,17 +433,91 @@ text-decoration: none;
 }
 
 /* Map */
+
 .map {
   height: 50%;
+  padding: 0;
+  display: block;
+  background-color: white;
+ }
+#map {
+  height: 100%;
   padding: 0;
  }
 
 @media (max-width: 992px) {
-  .map {
-    height: 75%; } }
+  #map {
+    height: 75%; }
+  }
 
-.map iframe {
-  pointer-events: none; }
+
+  /* Footer */
+  footer {
+  background: #0F1566;
+  padding: 4rem 0 6.5rem 0;
+
+  text-align: center;
+  font-family: OpenSans-Bold;
+  font-size: 1rem;
+  color: #42C7BD;
+  letter-spacing: 0.87px;
+  line-height: 34px;
+
+  font-family: OpenSans;
+  font-size: 20px;
+  color: #42C7BD;
+  letter-spacing: 0.87px;
+}
+
+#copyright{
+  font-size: 1rem;
+margin-bottom: 2.5rem;
+
+}
+
+
+    /* Add Animation */
+
+    @-webkit-keyframes slideIn {
+      from {
+        bottom: -300px;
+        opacity: 0
+      }
+      to {
+        bottom: 0;
+        opacity: 1
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        bottom: -300px;
+        opacity: 0
+      }
+      to {
+        bottom: 0;
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
 
 button {
 	background-color: #3C4A53;

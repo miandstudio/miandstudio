@@ -101,7 +101,6 @@
             <div class="service-box mt-5 mx-auto">
               <a href="#">
                 <div class ="icon-box">
-              <!-- <i class="fa fa-2x fa-rocket mb-3 sr-icons"></i> -->
               </div>
               </a>
               <h3 class="text-yellow mb-3">Portfolio Prep</h3>
@@ -111,8 +110,9 @@
 
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-                <div class ="icon-box-2">
-            </div>
+                <a href="#"><div class ="icon-box-2">
+              </div>
+            </a>
               <h3 class="text-yellow mb-3">Traditional Art Training</h3>
               <p class="text-nblue mb-0">Offer drawing and painting classes from beginning to advanced level
  </p>
@@ -121,8 +121,8 @@
 
           <div class="col-lg-4 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
-              <div class ="icon-box-3">
-            </div>
+              <a href="#"><div class ="icon-box-3">
+            </div></a>
               <h3 class="text-yellow mb-3">Computer Graphic Traning</h3>
               <p class="faded-nblue mb-0">Provide most desirable  and essential computer graphic lessons</p>
             </div>
@@ -248,13 +248,22 @@
     </section>
 
 
-    <section class="map bg-nblue" >
-      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=21580%20Stevens%20Creek%20blvd.%20%23205%20Cupertino%2C%20CA.%2095014&key=AIzaSyA0nm3z6e7Wje7txJ5qwxVdoh9Yg4OZI2c"></iframe>
-      <br/>
-      <small>
-        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-      </small>
+    <section class="map">
+      <div id="map"></div>
+      <!-- <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=21580%20Stevens%20Creek%20blvd.%20%23205%20Cupertino%2C%20CA.%2095014&key=AIzaSyA0nm3z6e7Wje7txJ5qwxVdoh9Yg4OZI2c"></iframe>
+      <br/> -->
+
     </section>
+
+    <footer>
+      <div id= "copyright">©Copyright 2015 - 2018</div>
+      <div><strong>MIAND STUDIO </strong></br>
+Phone: 408-323-5838 | Email: miandstudio1@gmail.com </br>
+Address: 21580 Stevens Creek Blvd. #211, Cupertino, CA., 95014</div>
+      <!-- <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=21580%20Stevens%20Creek%20blvd.%20%23205%20Cupertino%2C%20CA.%2095014&key=AIzaSyA0nm3z6e7Wje7txJ5qwxVdoh9Yg4OZI2c"></iframe>
+      <br/> -->
+
+    </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -269,6 +278,93 @@
     <script src="js/creative.min.js"></script>
     <script src="js/carousel.js"></script>
 
+
+<!-- map -->
+<script>
+$(document).ready(function () {
+  console.log('abc');
+      $('#map').addClass('scrolloff');                // set the mouse events to none when doc is ready
+
+      $('#overlay').on("mouseup",function(){          // lock it when mouse up
+          $('#map').addClass('scrolloff');
+          //somehow the mouseup event doesn't get call...
+      });
+      $('#overlay').on("mousedown",function(){        // when mouse down, set the mouse events free
+          $('#map').removeClass('scrolloff');
+      });
+      $("#map").mouseleave(function () {              // becuase the mouse up doesn't work...
+          $('#map').addClass('scrolloff');            // set the pointer events to none when mouse leaves the map area
+                                                      // or you can do it on some other event
+      });
+
+  });
+
+   function initMap() {
+     var mapCanvas = document.getElementById("map");
+       var mapOptions = {
+         center: new google.maps.LatLng(37.3224818, -122.05231459999999),
+         zoom: 17,
+         scrollwheel: false,
+       };
+       var map = new google.maps.Map(mapCanvas, mapOptions);
+       marker = new google.maps.Marker({
+         map: map,
+         // draggable: true,
+         animation: google.maps.Animation.DROP,
+         position: {
+           lat: 37.3224818,
+           lng: -122.05231459999999
+         }
+       });
+       marker.addListener('click', function() {
+         var infowindow = new google.maps.InfoWindow();
+         infowindow.setContent('<div style="color: gray"><strong >MIAND STUDIO</strong><br>' +
+           '<br>21580 Stevens Creek Blvd. #211 , <br>Cupertino, California 95051</div>' +
+           '<br><a href="https://www.google.com/maps/place/21580+Stevens+Creek+Blvd,+Cupertino,+CA+95014/@37.3224818,-122.0545033,17z/data=!3m1!4b1!4m5!3m4!1s0x808fb445b391957b:0xc0c9dfd33a4ccb9a!8m2!3d37.322505!4d-122.052292?hl=en-US">View on GoogleMaps </a>');
+         infowindow.open(map, marker)
+       });
+
+       marker.setMap(map);
+     }
+
+     function toggleBounce() {
+       if (marker.getAnimation() !== null) {
+         marker.setAnimation(null);
+       } else {
+         marker.setAnimation(google.maps.Animation.BOUNCE);
+       }
+
+
+     // var myLatlng = {lat: 37.3224818, lng: -122.05231459999999};
+     //
+     // var map = new google.maps.Map(document.getElementById('map'), {
+     //   zoom: 15,
+     //   center: myLatlng
+     // });
+     //
+     // var marker = new google.maps.Marker({
+     //   position: myLatlng,
+     //   map: map,
+     //   title: 'Click to zoom'
+     // });
+     //
+     // map.addListener('center_changed', function() {
+     //   // 3 seconds after the center of the map has changed, pan back to the
+     //   // marker.
+     //   window.setTimeout(function() {
+     //     map.panTo(marker.getPosition());
+     //   }, 3000);
+     // });
+     //
+     // marker.addListener('click', function() {
+     //   map.setZoom(8);
+     //   map.setCenter(marker.getPosition());
+     // });
+   }
+ </script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfZozYGmS1049T7c6ENDtOrtHaIIFuyPM&callback=initMap">>
+</script>
 
   </body>
 
